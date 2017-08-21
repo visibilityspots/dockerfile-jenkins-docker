@@ -1,0 +1,14 @@
+package:
+  docker-ce:
+    installed: true
+
+command:
+  docker --version:
+    exit-status: 0
+
+user:
+  jenkins:
+    exists: true
+    groups:
+    - jenkins
+    - docker

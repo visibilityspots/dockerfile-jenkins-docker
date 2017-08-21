@@ -1,0 +1,14 @@
+sudo: required
+services:
+- docker
+before_install:
+- curl -L https://goss.rocks/install | sudo sh
+- docker build -t visibilityspots/jenkins-with-docker-daemon .
+script:
+- dgoss run --name jenkins-docker -ti visibilityspots/jenkins-with-docker-daemon
+after_success:
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u=visibilityspots -p="$DOCKER_PASSWORD";
+  docker push visibilityspots/jenkins-with-docker-daemon; fi
+env:
+  global:
+    secure: QA24IWGelQ6nd3Xuwzif8L+2AeWC6M8V1jkZNJzJxaBLcxpucWcjkmowzaWGPmVfKeFAgfPsgVPfy8gK03JfY3J4H2AcCa8TWhVOoLvvY6ytFLobCWtRI8nIZoYeV8/BNlKzguoE4OEfrloJUU52tQ/NDWVleH5KCBCj3H93eE52USwZ4JUyoZtngd+Zqma0GUomMvOZ0mg2e87UOYQNnCZehh5okAIU34sKGTGwEwWeqxA9xUvBd3l7pRj+5bfeQ07Fn0n3/tmrzFkOKRfCL2HC63Aq0T0LFjKsYza2QykiI5z4enNVjH8d+/05dCCHaj+/ZqKVQWbMi/RIheXk1XvsxPttBlHC03EXdQBfZmiNUUaxtVQ7f9Df0sRPvIrZsYzbHkeqVSHTNIGZLzY2cizLzIedYLOFGKNRM3WsOokIlsn+f/XciZse0D3YPBPzkRlI6sXMLtduxkZLzC1tRgyZhTl1A1kMbXzj94SJzftQ2NW7g0lbSO38DxsZcy4g/VlTDLmDzHvnlcdiU2KPSXgQcPZXQk/AZuZdl/AaYb9FIhP06GYRVRJfxls5qlxIAxxJsBTyBR4UE7SGq86UtZdTqzr/LjQXQr8SU+KfxvKbOvfBiIrqzMcBaRqQgPfTeKhI+jEhNyAlgnvSQNf8Eg9UgHv6aW51TqyI+RzVqIs=
