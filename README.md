@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker.svg?branch=master)](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker)
 
-Having jenkins running as a docker container with the docker client preinstalled.
+Have jenkins running as a docker container with the docker client preinstalled.
 
 At one of our clients we setted up a dockerized jenkins master/slave setup. To build the docker images used in the environment we used the [docker-pipeline](https://plugins.jenkins.io/docker-workflow) plugin. Therefore we also needed to install the docker-ce client on the jenkins master.
 
