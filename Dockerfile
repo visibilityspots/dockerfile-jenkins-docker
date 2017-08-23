@@ -15,7 +15,4 @@ RUN set -x \
 	&& apt-get update -y \
 	&& apt-get install docker-ce -y \
 	&& usermod -a -G docker jenkins \
-	&& docker --version
-USER jenkins
-RUN set -x \
-	&& groups 
+	&& rm -rf /var/lib/apt/lists/*
