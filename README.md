@@ -1,6 +1,6 @@
-# jenkins-with-docker-daemon
+# jenkins-docker
 
-[![Build Status](https://travis-ci.org/visibilityspots/dockerfile-jenkins-with-docker-daemon.svg?branch=master)](https://travis-ci.org/visibilityspots/dockerfile-jenkins-with-docker-daemon)
+[![Build Status](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker.svg?branch=master)](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker)
 
 Having jenkins running as a docker container with the docker client preinstalled.
 
@@ -12,7 +12,7 @@ Nothing more nothing less.
 
 ## Run
 
-```docker run --name jenkinsmaster --rm -ti visibilityspots/jenkins-with-docker-daemon```
+```docker run --name jenkinsmaster --rm -ti visibilityspots/jenkins-docker```
 
 ## Configuration
 
@@ -24,7 +24,7 @@ cfr https://github.com/jenkinsci/docker/blob/master/README.md
 I wrote some tests in a goss.yaml file which can be executed by [dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss)
 
 ```
-$ dgoss  run --name jenkinsmaster-test --rm -ti visibilityspots/jenkins-with-docker-daemon
+$ dgoss  run --name jenkinsmaster-test --rm -ti visibilityspots/jenkins-docker
 INFO: Starting docker container
 INFO: Container ID: 99935bae
 INFO: Sleeping for 0.2
