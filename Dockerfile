@@ -14,5 +14,6 @@ RUN set -x \
 	&& add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
 	&& apt-get update -y \
 	&& apt-get install docker-ce -y \
+	&& groupmod -g 900 docker \
 	&& usermod -a -G docker jenkins \
 	&& rm -rf /var/lib/apt/lists/*

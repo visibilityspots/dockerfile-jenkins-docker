@@ -6,6 +6,11 @@ command:
   docker --version:
     exit-status: 0
 
+group:
+  docker:
+    exists: true
+    gid: 900
+
 user:
   jenkins:
     exists: true
