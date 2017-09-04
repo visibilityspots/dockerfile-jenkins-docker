@@ -1,10 +1,18 @@
 package:
   docker-ce:
     installed: true
+  file:
+    installed: true
 
 command:
   docker --version:
     exit-status: 0
+
+command:
+  /usr/bin/file /etc/localtime:
+    exit-status: 0
+    stdout:
+    - '/etc/localtime: symbolic link to /usr/share/zoneinfo/Etc/UTC'
 
 group:
   docker:

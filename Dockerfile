@@ -1,12 +1,15 @@
 FROM jenkins/jenkins:lts
+ENV TZ=Etc/UTC
 USER root
 RUN set -x \
+	&& ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
 	&& apt-get update -y \
 	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends apt-utils \
 	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends apt-transport-https \
 	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends ca-certificates \
 	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends curl \
 	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends gnupg2 \
+	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends file \
 	&& DEBIAN_FRONTEND="noninteractive" apt-get install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends software-properties-common \
 	&& curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
 	&& echo "does the fingerprint of next command matches 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88" \
