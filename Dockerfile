@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
+LABEL author="Jan Collijs"
 ENV TZ=Etc/UTC
 USER root
 RUN set -x \
