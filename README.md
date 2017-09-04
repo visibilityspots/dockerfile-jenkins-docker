@@ -28,12 +28,12 @@ or
 # systemctl restart docker
 ```
 
-Mount the docker daemon, expose port 8080 and mount a volume for the persistent data:
+Mount the docker daemon, expose port 8080, set the timezone to CET and mount a volume for the persistent data:
 
 ```
 # mkdir /opt/jenkins
 # chown 1000: /opt/jenkins
-# docker run --name jenkinsmaster --rm -ti -p 8080:8080 -v  /var/run/docker.sock:/var/run/docker.sock -v /opt/jenkins:/var/jenkins_home visibilityspots/jenkins-docker
+# docker run --name jenkinsmaster --rm -ti -p 8080:8080 -e TZ=CET -v /var/run/docker.sock:/var/run/docker.sock -v /opt/jenkins:/var/jenkins_home visibilityspots/jenkins-docker
 ```
 
 cfr https://github.com/jenkinsci/docker/blob/master/README.md
@@ -45,19 +45,20 @@ I wrote some tests in a goss.yaml file which can be executed by [dgoss](https://
 ```
 $ dgoss  run --name jenkinsmaster-test --rm -ti visibilityspots/jenkins-docker
 INFO: Starting docker container
-INFO: Container ID: 0c271ca8
+INFO: Container ID: 0ca7b874
 INFO: Sleeping for 0.2
 INFO: Running Tests
-User: jenkins: exists: matches expectation: [true]
-User: jenkins: groups: matches expectation: [["jenkins","docker"]]
 Group: docker: exists: matches expectation: [true]
 Group: docker: gid: matches expectation: [900]
+User: jenkins: exists: matches expectation: [true]
+User: jenkins: groups: matches expectation: [["jenkins","docker"]]
+Package: file: installed: matches expectation: [true]
 Package: docker-ce: installed: matches expectation: [true]
-Command: docker --version: exit-status: matches expectation: [0]
+Command: /usr/bin/file /etc/localtime: exit-status: matches expectation: [0]
+Command: /usr/bin/file /etc/localtime: stdout: matches expectation: [/etc/localtime: symbolic link to /usr/share/zoneinfo/Etc/UTC]
 
-
-Total Duration: 0.077s
-Count: 6, Failed: 0, Skipped: 0
+Total Duration: 0.026s
+Count: 8, Failed: 0, Skipped: 0
 INFO: Deleting container
 ```
 
