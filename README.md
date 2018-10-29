@@ -1,6 +1,6 @@
 # jenkins-docker
 
-[![Build Status](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker.svg?branch=master)](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker)
+[![Build Status](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker.svg?branch=master)](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker) [![Anchore Image Overview](https://anchore.io/service/badges/image/bdeaa14096117dfdc2ebb6ba9452dbee8e2e4c9dc0d0147098d3504acd8eb5ba)](https://anchore.io/image/dockerhub/visibilityspots%2Fjenkins-docker%3Alatest)
 
 Have jenkins running as a docker container with the docker client preinstalled.
 
