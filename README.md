@@ -1,6 +1,9 @@
 # jenkins-docker
 
-[![Build Status](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker.svg?branch=master)](https://travis-ci.org/visibilityspots/dockerfile-jenkins-docker) [![Anchore Image Overview](https://anchore.io/service/badges/image/bdeaa14096117dfdc2ebb6ba9452dbee8e2e4c9dc0d0147098d3504acd8eb5ba)](https://anchore.io/image/dockerhub/visibilityspots%2Fjenkins-docker%3Alatest)
+[![build status](https://github.com/visibilityspots/dockerfile-jenkins-docker/actions/workflows/main.yaml/badge.svg)](https://github.com/visibilityspots/dockerfile-jenkins-docker/actions/workflows/main.yaml)
+[![docker image size](https://img.shields.io/docker/image-size/visibilityspots/jenkins-docker/latest)](https://hub.docker.com/r/visibilityspots/jenkins-docker)
+[![docker pulls](https://img.shields.io/docker/pulls/visibilityspots/jenkins-docker.svg)](https://hub.docker.com/r/visibilityspots/jenkins-docker/)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 Have jenkins running as a docker container with the docker client preinstalled.
 
